@@ -9,15 +9,27 @@
 <body>
     <h1>Welcome to the calculator!</h1>
     <form method="post" action="/">
-       <p> Your first number here:<input name="first_number"></p>
-        <p> Your second number here:<input name="second_number"></p>
 
-       <select name="Operation">
-            <option value="Plus" name="Plus">+</option>
-            <option value="Minus">-</option>
-            <option value="Times">*</option>
-            <option value="Divided">:</option>
+        <p>Input number<input name="number"></p>
+
+        <p> Select Measurment:</p>
+       <select name="Convert_from">
+            <option value="m" name="Plus">M</option>
+            <option value="km">Km</option>
+            <option value="mm">Mm</option>
+            <option value="cm">Cm</option>
        </select>
+
+
+
+        <p> Convert to:</p>
+        <select name="Convert_to">
+            <option value="m" name="Plus">M</option>
+            <option value="km">Km</option>
+            <option value="mm">Mm</option>
+            <option value="cm">Cm</option>
+       </select>
+
         <button type="submit" name="submit">Submit </button>
 
     </form>

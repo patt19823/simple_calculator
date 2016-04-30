@@ -31,19 +31,19 @@ class MainHandler(BaseHandler):
     def get(self):
         return self.render_template("hello.html")
     def post(self):
-        first_number = float(self.request.get("first_number"))
-        second_number = float(self.request.get("second_number"))
-        operation = self.request.get("Operation")
+        convert_from = self.request.get("Convert_from")
+        convert_to = self.request.get("Convert_to")
+        original_amount = float(self.request.get("number"))
 
-        if operation == "Plus":
-            x = first_number+second_number
+        conversions = {
+                "mm": {"mm": 1, "cm": 1/10, "m": 1/1000, "km": 1/1000000},
+                "cm": {"mm": 10, "cm": 1, "m": 1/100, "km": 1/100000},
+                "m":  {"mm": 1000, "cm": 100, "m": 1, "km": 1/1000},
+                "km": {"mm": 100000, "cm": 10000, "m": 1000, "km": 1},
+              }
 
-        elif operation == "Minus":
-            x = first_number-second_number
-        elif operation == "Divided":
-            x = first_number/second_number
-        else:
-            x = first_number*second_number
+        convert = conversions[convert_from][convert_to]
+        x= original_amount*convert
 
         view_vars = {
            "x":x,
